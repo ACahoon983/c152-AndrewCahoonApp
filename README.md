@@ -1,37 +1,19 @@
 # SpeedRunAppDemo
 Simple Express/Mongoose server showcasing skills learned from c152
 
-The google authentication keys must be setup by visiting https://console.developers.google.com
-to get a clientID and a clientSecret
+It uses a little of the speedrun.com API, but I was unable to parse the json
+object and map it in order to actually give the user the data they were
+requesting.
 
-When you deploy this to a URL you need to set 4 environment variables
-* clientID     -- from your OAUTH provider
-* clientSecret -- from your OAUTH provider
-* callbackURL  -- http://YOURDOMAIN/login/authorized
-* MONGODB_URI  -- ... the URI of your mongo database
+Aside from that, this app uses authentication, a bootstrap accordion, and keeps
+a database of user submitted speedruns.
 
-To run this locally in a bash shell you can set the environment variables with the following commands
-``` shell
-bash
-export clientID="ZZZZZZZZZ"
-export clientSecret="ZZZZZZZZZ"
-export callbackURL="https://....../login/authorized"
-export MONGODB_URI="mongodb://........"
-```
-You can also put these commands in a shell script...
+If I were to improve upon this app, I would include a submission form for videos,
+as well as integrate with the speedrun.com API better, so that users could
+search up any game and get the leaderboards for them.
 
-To run this on heroku you can set the heroku environment variables by logging into http://heroku.com, selecting your app, and clicking on the settings tab which reveals the "reveal config variables" button.
-You can also set the environment variables in heroku with the heroku command line interface:
-```
-heroku config:set clientId:"ZZZZZZZZ"
-```
-etc.
-
-You start the app locally with
-```
-npm start
-```
-and on heroku with
-```
-heroku open
-```
+The problem encountered with the aforementioned API was that it was split in this
+manner: json:data: : id:...
+                   : id:...
+and I simply did not know how to parse, nor could I find a solution that was
+to my liking.
