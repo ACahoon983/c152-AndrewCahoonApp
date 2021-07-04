@@ -1,0 +1,27 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+<div class="jumbotron">
+    <h1>Submit a speedrun</h1>
+      <form method ="post" action ="submitRun">
+        <table class ="table table-bordered table-striped">
+          <tbody>
+            <tr>
+              <td>Game: </td>
+              <td><input type="String" name = "game"></td>
+            </tr>
+            <tr>
+              <td>Category: </td>
+              <td><input type = "string" name = "category"</td>
+            </tr>
+            <tr>
+              <td>Time: </td>
+              <td>Hours: <input type="Number" name = "hours"></td>
+              <td>Minutes: <input type="Number" name = "minutes"></td>
+              <td>Seconds: <input type="Number" name = "seconds"></td>
+              <td>Milliseconds: <input type="Number" name = "milliseconds"></td>
+              <input type="hidden" name="username" value="<%= user.username %>">
+          </tbody>
+        </table>
+        <input type ="submit" value ="save">
+      </form>
+</div>

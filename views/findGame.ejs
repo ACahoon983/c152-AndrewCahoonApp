@@ -1,0 +1,41 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+<div class="jumbotron">
+  <h1>Get the ID for any given game from
+    <a href="https://www.speedrun.com/api/v1/games"</a>speedrun.com
+  </h1>
+  <form method = "post" action ="findGame">
+    Browse for a game: <input type = "String" name ="game"
+    <input type ="submit">
+  </form>
+
+  <% results.map((game) => {%>
+<div style="border-top:thick solid blue; margin:20; padding:10">
+    <h1 class="bg-warning"> <%= game.international %> </h1><br>
+    <h2> gameID: <%= game.id %> <h2>
+    <a href="<%= game.weblink %>"> <%= game.weblink %> </a>
+    <div class="row">
+        <div class="col">
+            <h2>Game links</h2>
+            <ol>
+            <% game.links.split(",").map((i) => {%>
+                <li> <%= i %>  </li>
+            <%})%>
+            </ol>
+        </div>
+    </div>
+</div>
+<%})%>
+  <form method = "post" action = "viewSpeedRuns">
+    Select which speedruns you want to see<br>
+    Game: <input type = "String" name ="game">
+    Category: <input type = "String" name = "category">
+    <input type = "submit">
+  </form>
+
+  <form method = "post" action = "categoryDetails">
+    Select a category you want to know more about<br>
+    CategoryID: <input type = "String" name = "category">
+    <input type = "submit">
+    </form>
+</div>

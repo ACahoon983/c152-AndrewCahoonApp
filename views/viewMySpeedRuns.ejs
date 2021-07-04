@@ -1,0 +1,12 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+<div class="jumbotron">
+  <h1>Keep track of your runs! </h1>
+  <form method = "post" action = "mySpeedRuns">
+    Select which speedruns you want to see<br>
+    Game: <input type = "String" name ="game">
+    Category: <input type = "String" name = "category">
+    <input type = "submit">
+  </form>
+  <a href="/submitRun">Submit a new speedrun?</a>
+</div>
