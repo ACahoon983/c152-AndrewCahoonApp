@@ -6,6 +6,7 @@ const logger = require('morgan');
 const cors = require('cors');
 const axios = require("axios");
 const layouts = require("express-ejs-layouts");
+const dotenv = require('dotenv').config()
 //const auth = require('./config/auth.js');
 
 
