@@ -82,6 +82,10 @@ app.use('/publicprofile/:userId',
       }
     }
 )
+app.get('/authorProfile',
+    (req,res) =>{
+      res.render('authorProfile')
+})
 
 
 app.get('/profile',
