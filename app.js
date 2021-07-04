@@ -12,7 +12,8 @@ const dotenv = require('dotenv').config()
 
 const mongoose = require( 'mongoose' );
 //mongoose.connect( `mongodb+srv://${auth.atlasAuth.username}:${auth.atlasAuth.password}@cluster0-yjamu.mongodb.net/authdemo?retryWrites=true&w=majority`);
-mongoose.connect( 'mongodb://localhost/finalApp');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/finalApp');
+//mongoose.connect( 'mongodb://localhost/finalApp');
  {useNewUrlParser: true}
  const mongoDB_URI = process.env.MONGODB_URI
 //mongoose.connect(mongoDB_URI)
