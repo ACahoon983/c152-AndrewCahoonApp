@@ -1,14 +1,12 @@
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
+<h2>Unforunately this page is not fully functional. I was unable to parse
+  the json object that this page gets, so while the json array is retrieved,
+  I was not successful in figuring out how to parse it. sorry for the inconvenience
+</h2> 
 <form method = "post" action ="findGame">
-  Browse for a game: <input type = "String" name ="game"
+  Browse for a game: <input type = "String" name ="game">
   <input type ="submit">
 </form>
-
-<h2>Please note that this page does not work, as I had difficulties in parsing<br>
-  the json object received from speedrun.com, as within the data json object,<br>
-  there was no actual name of each object to further split them and read them.<br>
-  My apologies, and if I return to this in the future, I will figure that one<br>
-  out<br>
   <a href = "/"> here is a link back to the index</a>
 </h2>

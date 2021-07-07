@@ -135,8 +135,8 @@ app.post('/findGame',
         const result = await axios.get(url)
         console.dir(result.data)
         console.log('results')
-        console.dir(result.data.results)
-        res.locals.results = result.data.id
+        console.dir(result.data)
+        res.locals.data = result.data
         //res.json(result.data)
         res.render('findGame')
       } catch(error){
