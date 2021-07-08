@@ -7,6 +7,7 @@ const cors = require('cors');
 const axios = require("axios");
 const layouts = require("express-ejs-layouts");
 const dotenv = require('dotenv').config()
+const Walk = require('./models/Walk')
 //const auth = require('./config/auth.js');
 
 
@@ -94,7 +95,7 @@ app.get('/profile',
     isLoggedIn,
     (req,res) => {
       res.render('profile')
-    })
+  })
 
 app.get('/editProfile',
     isLoggedIn,
@@ -121,6 +122,33 @@ app.get('/authorProfile',
     (req, res) => {
       res.render('authorProfile')
     })
+
+app.get('/walk',
+    async(req,res,next) => {
+      res.locals.walk = await Walk.find({userId:req.user._id})
+      res.render('walkingLog')
+})
+
+app.post('/logWalk',
+    async(req,res,next) =>{
+      const date = req.body.date
+      const minutes = req.body.minutes
+      const steps = req.body.steps
+      const a = parseFloat(steps)
+      const b = parseFloat(minutes)
+      const speed = a/b
+      const walk = new Walk(
+        {date:date,
+         minutes:minutes,
+         steps:steps,
+         speed:speed,
+         createdAt: new Date(),
+         userId: req.user._id,
+        })
+      res.locals.walk = await Walk.find({userId:req.user._id})
+    await walk.save();
+    res.render('walkingLog')
+})
 
 app.get('/gameSearch',
     (req,res) => {
