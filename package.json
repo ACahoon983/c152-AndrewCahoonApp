@@ -18,7 +18,7 @@
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.17.1",
     "http-errors": "~1.6.3",
-    "mongoose": "^5.13.1",
+    "mongoose": "^5.13.20",
     "morgan": "~1.9.1",
     "node-speedrun": "^1.2.0",
     "passport": "^0.4.1",
